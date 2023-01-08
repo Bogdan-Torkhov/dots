@@ -224,7 +224,7 @@ source /home/deusbog/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # bun completions
 [ -s "/home/deusbog/.bun/_bun" ] && source "/home/deusbog/.bun/_bun"
-
+pfetch
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
