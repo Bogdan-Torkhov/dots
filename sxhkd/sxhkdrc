@@ -54,5 +54,6 @@ XF86AudioMute
 
 XF86MonBrightnessUp 
     brightnessctl set +1%
+
 XF86MonBrightnessDown 
     brightnessctl set 1%-
