@@ -1,0 +1,16 @@
+import:
+  - /home/deusbog/Downloads/alacritty-master/dracula.yml
+font:
+  normal:
+    family: FiraCode Nerd Font
+    style: Regular
+    size: 13,0
+shell:
+ program: /usr/bin/zsh
+ args:
+   - --login
+key_bindings:
+  - { key: Space, mods: Shift, chars: "\x1b[32;2u" }
+window:
+  opacity: 0.90
+  decoration: 'full'
