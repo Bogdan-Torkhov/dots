@@ -2,10 +2,11 @@
 sxhkd &
 picom &
 xsetroot -cursor_name Bibata-Modern-Classic &
+xsetroot -cursor_name left_ptr &
 feh --bg-fil /home/deusbog/Pictures/arch.png &
 polybar &
 setxkbmap -option grp:alt_shift_toggle us,ru &
-
+wmname LG3D &
 
 bspc monitor -d 1 2 3 4 5 
 bspc config border_width         1
