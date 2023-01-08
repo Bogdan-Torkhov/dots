@@ -37,6 +37,9 @@ super + m
 super + p
     rofi -show power-menu -modi power-menu:rofi-power-menu
 
+super + S
+    flameshot gui
+
 XF86AudioRaiseVolume
 	amixer set Master 1%+
 
