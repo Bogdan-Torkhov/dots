@@ -28,6 +28,9 @@ super + ctrl + {h,j,k,l}
 super + r
     rofi -show drun -modi drun -show-icons
 
+super + l
+    betterlockscreen -l
+
 super + {1,2,3,4,5}
 	bspc desktop -f {1,2,3,4,5}
 
