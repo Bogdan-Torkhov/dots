@@ -14,6 +14,7 @@
     "python.pythonPath": "/usr/bin/python3.11",
     "coc.preferences.formatOnSaveFiletypes": ["python", "go", "javascript", "typescript", "typescriptreact", "json", "javascriptreact", "typescript.tsx", "graphql", "rust", "markdown"],
     "suggest.formatItems": ["kind", "abbr", "menu"],
+    "rust-analyzer.serverPath": "/usr/bin/rust-analyzer",
     "suggest.completionItemKindLabels": {
     "method": "  ",
     "function": "  ",
