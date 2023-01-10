@@ -61,12 +61,14 @@ Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
 Plug 'Pocco81/auto-save.nvim'
+Plug 'xiyaowong/nvim-transparent'
 call plug#end()
 colorscheme dracula
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeChDirMode=0
 let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
+let g:transparent_enabled = v:true
 au CursorHold * if exists("t:NerdTreeBufName") | call <SNR>15_refreshRoot() | endif
 set background=dark
 set clipboard=unnamedplus
