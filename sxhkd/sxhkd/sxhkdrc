@@ -1,0 +1,59 @@
+super + Return
+	alacritty
+
+super + shift + {q,r}
+    bspc {quit,wm -r}
+
+super + t
+    thunar
+
+super + q 
+	bspc node -{c}
+
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + {_,shift + }{Left,Down,Up,Right}
+    bspc node -{f,s} {west,south,north,east}
+
+super + shift + {h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+super + r
+    rofi -show drun -modi drun -show-icons
+
+super + l
+    betterlockscreen -l
+
+super + {1,2,3,4,5}
+	bspc desktop -f {1,2,3,4,5}
+
+super + m
+	bspc desktop -l next
+
+super + p
+    rofi -show power-menu -modi power-menu:rofi-power-menu
+
+super + S
+    flameshot gui
+
+XF86AudioRaiseVolume
+	amixer set Master 1%+
+
+XF86AudioLowerVolume
+	amixer set Master 1%-
+
+XF86AudioMute
+    amixer set Master toggle
+
+XF86MonBrightnessUp 
+    brightnessctl set +1%
+
+XF86MonBrightnessDown 
+    brightnessctl set 1%-
