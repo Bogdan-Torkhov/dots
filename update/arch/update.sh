@@ -10,3 +10,4 @@ poetry self update
 deno upgrade
 bun upgrade
 pyenv update
+conda update conda
