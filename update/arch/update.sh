@@ -9,3 +9,4 @@ sudo yarn upgrade
 poetry self update
 deno upgrade
 bun upgrade
+pyenv update
