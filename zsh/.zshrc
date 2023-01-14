@@ -224,16 +224,14 @@ source /home/deusbog/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # bun completions
 [ -s "/home/deusbog/.bun/_bun" ] && source "/home/deusbog/.bun/_bun"
-pfetch
 export _JAVA_AWT_WM_NONREPARENTING=1
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-eval "$(pyenv virtualenv-init -)"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
+eval "$(pyenv virtualenv-init -)"
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/deusbog/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
