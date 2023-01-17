@@ -4,14 +4,14 @@ super + Return
 super + shift + {q,r}
     bspc {quit,wm -r}
 
-super + t
+super + f 
     thunar
 
 super + q 
 	bspc node -{c}
 
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + t,s}
+	bspc node -t {tiled,pseudo_tiled,floating}
 
 super + {_,shift + }{Left,Down,Up,Right}
     bspc node -{f,s} {west,south,north,east}
