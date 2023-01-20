@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 sudo pacman -Syyu && paru 
 curl -fsSL https://get.pulumi.com | sh
 brew update
