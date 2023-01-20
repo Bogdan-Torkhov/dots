@@ -11,4 +11,3 @@ deno upgrade
 bun upgrade
 pyenv update
 conda update conda
-omz update
