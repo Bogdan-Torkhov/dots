@@ -61,6 +61,7 @@ Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
 Plug 'xiyaowong/nvim-transparent'
+Plug 'wakatime/vim-wakatime'
 call plug#end()
 colorscheme dracula
 let g:NERDTreeShowHidden = 1
