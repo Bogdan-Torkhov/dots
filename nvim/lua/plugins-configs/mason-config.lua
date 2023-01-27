@@ -14,24 +14,7 @@ if not setup3 then
 end
 
 mason.setup()
-masonlspconfig.setup({
-	ensure_installed = {
-		"ansiblels",
-		"bashls",
-		"clangd",
-		"dockerls",
-		"eslint",
-		"gopls",
-		"grammarly",
-		"tsserver",
-		"sumneko_lua",
-		"pyright",
-		"pylsp",
-		"rust_analyzer",
-		"tailwindcss",
-		"jsonls",
-	},
-})
+masonlspconfig.setup()
 
 masonlspconfig.setup_handlers({
 	function(server_name)
