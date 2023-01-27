@@ -1,6 +1,6 @@
 local setup, tree = pcall(require, "nvim-tree")
 if not setup then
-  return
+	return
 end
 
-require("nvim-tree").setup()
+tree.setup()

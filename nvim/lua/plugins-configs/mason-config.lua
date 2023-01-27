@@ -8,11 +8,33 @@ if not setup2 then
 	return
 end
 
-require("mason").setup()
-require("mason-lspconfig").setup()
+local setup3, lspconfig = pcall(require, "lspconfig")
+if not setup3 then
+	return
+end
 
-require("mason-lspconfig").setup_handlers({
+mason.setup()
+masonlspconfig.setup({
+	ensure_installed = {
+		"ansiblels",
+		"bashls",
+		"clangd",
+		"dockerls",
+		"eslint",
+		"gopls",
+		"grammarly",
+		"tsserver",
+		"sumneko_lua",
+		"pyright",
+		"pylsp",
+		"rust_analyzer",
+		"tailwindcss",
+		"jsonls",
+	},
+})
+
+masonlspconfig.setup_handlers({
 	function(server_name)
-		require("lspconfig")[server_name].setup({})
+		lspconfig[server_name].setup({})
 	end,
 })

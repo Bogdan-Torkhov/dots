@@ -1,6 +1,6 @@
 local setup, treesitter = pcall(require, "nvim-treesitter")
 if not setup then
-  return
+	return
 end
 
-require 'nvim-treesitter.configs'.setup{}
+treesitter.setup({})
