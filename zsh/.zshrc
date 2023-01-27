@@ -80,7 +80,7 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf-zsh-plugin z git zsh-syntax-highlighting zsh-autosuggestions kubectl history emoji encode64 sudo poetry)
+plugins=(fzf-tab fzf-zsh-plugin z git zsh-syntax-highlighting zsh-autosuggestions kubectl history emoji encode64 sudo poetry)
 
 export DENO_INSTALL="/home/deusbog/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
