@@ -76,13 +76,13 @@ return packer.startup(function(use)
 		ft = { "markdown" },
 	})
 	-- git
-	use("tpope/vim-fugitive")
+	use("dinhhuy258/git.nvim")
 	use("lewis6991/gitsigns.nvim")
 	-- bar and down line
 	use({ "romgrk/barbar.nvim", wants = "nvim-web-devicons" })
 	use({
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 	-- auto-pairs and auto-tags
 	use("windwp/nvim-autopairs")

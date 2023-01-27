@@ -125,6 +125,11 @@ _G.packer_plugins = {
     path = "/home/deusbog/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["git.nvim"] = {
+    loaded = true,
+    path = "/home/deusbog/.local/share/nvim/site/pack/packer/start/git.nvim",
+    url = "https://github.com/dinhhuy258/git.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/deusbog/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -256,11 +261,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/deusbog/.local/share/nvim/site/pack/packer/start/vim-floaterm",
     url = "https://github.com/voldikss/vim-floaterm"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/deusbog/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-wakatime"] = {
     loaded = true,
