@@ -3,4 +3,5 @@ if not setup then
 	return
 end
 -- configure/enable gitsigns
+
 gitsigns.setup()
