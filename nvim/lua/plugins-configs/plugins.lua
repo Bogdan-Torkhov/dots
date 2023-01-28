@@ -91,8 +91,8 @@ return packer.startup(function(use)
 	use("xiyaowong/nvim-transparent")
 	-- wakatime plugin
 	use("wakatime/vim-wakatime")
-	-- floating terminal
-	use("voldikss/vim-floaterm")
+	-- terminal emulator inside neovim
+	use("akinsho/toggleterm.nvim")
 	-- colorize colors(hex,rgb)
 	use("norcalli/nvim-colorizer.lua")
 end)
