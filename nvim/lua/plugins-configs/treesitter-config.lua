@@ -6,5 +6,6 @@ end
 treesitter.setup({
 	highlight = { enable = true, disable = {} },
 	indent = { enable = true, disable = {} },
-	autotag = { enable = true },
+	autotag = { enable = true, disable = {} },
+	auto_install = { enable = true, disable = {} },
 })
