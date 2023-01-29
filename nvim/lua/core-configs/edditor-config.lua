@@ -1,6 +1,3 @@
-vim.o.scriptencoding = "utf-8"
-vim.o.encoding = "utf-8"
-vim.o.fileencoding = "utf-8"
 vim.wo.number = true
 vim.o.hlsearch = true
 vim.o.showcmd = true
@@ -38,4 +35,3 @@ vim.o.nowb = true
 vim.o.t_Co = 256
 vim.o.updatetime = 100
 vim.o.expandtab = true
-vim.g.transparent_enabled = true
