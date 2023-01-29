@@ -4,8 +4,10 @@ if not setup then
 end
 
 treesitter.setup({
-	highlight = { enable = true, disable = {} },
-	indent = { enable = true, disable = {} },
-	autotag = { enable = true, disable = {} },
-	auto_install = { enable = true, disable = {} },
+	ensure_installed = { "all" },
+	sync_install = false,
+	highlight = true,
+	indent = true,
+	autotag = true,
+	auto_install = true,
 })

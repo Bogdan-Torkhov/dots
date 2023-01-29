@@ -10,37 +10,15 @@ if not luasnip_status then
 	return
 end
 
+-- import lspkind plugin safely
+local lspkind_status, lspkind = pcall(require, "lspkind")
+if not lspkind_status then
+	return
+end
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.o.completeopt = "menu,menuone,noselect"
-
-local cmp_kinds = {
-	Text = " ",
-	Method = " ",
-	Function = " ",
-	Constructor = " ",
-	Field = "ﰠ ",
-	Variable = " ",
-	Class = "ﴯ ",
-	Interface = " ",
-	Module = " ",
-	Property = "ﰠ ",
-	Unit = "塞 ",
-	Value = " ",
-	Enum = " ",
-	Keyword = " ",
-	Snippet = " ",
-	Color = " ",
-	File = " ",
-	Reference = " ",
-	Folder = " ",
-	EnumMember = " ",
-	Constant = " ",
-	Struct = "פּ ",
-	Event = " ",
-	Operator = " ",
-	TypeParameter = "",
-}
 
 cmp.setup({
 	snippet = {
@@ -69,9 +47,11 @@ cmp.setup({
 	}),
 	-- configure vs-code like icons
 	formatting = {
-		format = function(_, vim_item)
-			vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
-			return vim_item
-		end,
+		fields = { "kind", "abbr", "menu" },
+		format = lspkind.cmp_format({
+			mode = "symbol",
+			maxwidth = 50,
+			ellipsis_char = "...",
+		}),
 	},
 })

@@ -64,6 +64,8 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	-- vs code like icons
+	use("onsails/lspkind.nvim")
 	-- markdown
 	use({
 		"iamcco/markdown-preview.nvim",
