@@ -23,7 +23,7 @@ lualine.setup({
 		},
 		lualine_c = { { "filename" } },
 		lualine_x = {
-			{ "encoding", icon = "", separator = { right = "|" } },
+			{ "encoding", icon = "", separator = { right = "" } },
 			"filetype",
 		},
 		lualine_y = { { "progress", separator = { right = "" } } },
