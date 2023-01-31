@@ -89,6 +89,8 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	-- nvim transparency
 	use("xiyaowong/nvim-transparent")
+	-- wakatime plugin
+	use("wakatime/vim-wakatime")
 	-- terminal emulator inside neovim
 	use("akinsho/toggleterm.nvim")
 	-- colorize colors(hex,rgb)
