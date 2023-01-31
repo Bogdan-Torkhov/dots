@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=vim 
 export PYTHONNOUSERSITE="true"
@@ -82,6 +82,7 @@ export VISUAL=nvim
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(fzf-tab fzf-zsh-plugin z git zsh-syntax-highlighting zsh-autosuggestions kubectl history emoji encode64 sudo poetry)
 
+ssh-add -q ~/.ssh/deus-mikrotik ~/.ssh/deus-router ~/.ssh/dory-nas-server ~/.ssh/deus-server ~/.ssh/dory-proxmox-ansible-master ~/.ssh/dory-proxmox-plex-server ~/.ssh/dory-proxmox-wireguard-server ~/.ssh/github-deus-ssh-key
 export DENO_INSTALL="/home/deusbog/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="~/.bun/bin:$PATH"
