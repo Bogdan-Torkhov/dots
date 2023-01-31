@@ -18,8 +18,8 @@ export PYTHONNOUSERSITE="true"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="dracula"
-
-
+export EDITOR=nvim
+export VISUAL=nvim 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -121,6 +121,7 @@ source /home/deusbog/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+alias vim="nvim"
 alias pip="pip3"
 alias python="python3"
 alias emacs='emacs -nw'
@@ -247,3 +248,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export GPG_TTY=$(tty)
