@@ -1,5 +1,5 @@
 -- fixing for vim global function not found
-require("lspconfig")["sumneko_lua"].setup({
+require("lspconfig")["lua_ls"].setup({
 	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 })
 
