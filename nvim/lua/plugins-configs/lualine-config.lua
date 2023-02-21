@@ -1,5 +1,5 @@
-local setup, lualine = pcall(require, "lualine")
-if not setup then
+local lualine_setup, lualine = pcall(require, "lualine")
+if not lualine_setup then
 	return
 end
 
@@ -8,7 +8,7 @@ lualine.setup({
 		icons_enabled = true,
 		theme = "dracula",
 		component_separators = "|",
-		section_separators = { left = "|", right = "|" },
+		section_separators = { left = "", right = "" },
 		ignore_focus = {},
 		always_divide_middle = true,
 		globalstatus = false,

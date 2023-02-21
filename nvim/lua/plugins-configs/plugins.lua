@@ -91,8 +91,15 @@ return packer.startup(function(use)
 	use("xiyaowong/nvim-transparent")
 	-- wakatime plugin
 	use("wakatime/vim-wakatime")
-	-- terminal emulator inside neovim
-	use("akinsho/toggleterm.nvim")
 	-- colorize colors(hex,rgb)
 	use("norcalli/nvim-colorizer.lua")
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		requires = {
+			{ "nvim-tree/nvim-web-devicons" },
+			-- Please make sure you install markdown and markdown_inline parser
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
 end)

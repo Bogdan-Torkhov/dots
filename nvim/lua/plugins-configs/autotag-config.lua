@@ -1,5 +1,5 @@
-local setup, autotag = pcall(require, "nvim-ts-autotag")
-if not setup then
+local autotag_setup, autotag = pcall(require, "nvim-ts-autotag")
+if not autotag_setup then
 	return
 end
 

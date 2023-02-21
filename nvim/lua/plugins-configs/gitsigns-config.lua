@@ -1,5 +1,5 @@
-local setup, gitsigns = pcall(require, "gitsigns")
-if not setup then
+local gitsigns_setup, gitsigns = pcall(require, "gitsigns")
+if not gitsigns_setup then
 	return
 end
 -- configure/enable gitsigns

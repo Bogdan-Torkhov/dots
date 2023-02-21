@@ -1,33 +1,33 @@
-local setup, mason = pcall(require, "mason")
-if not setup then
+local mason_setup, mason = pcall(require, "mason")
+if not mason_setup then
 	return
 end
 
-local setup2, masonlspconfig = pcall(require, "mason-lspconfig")
-if not setup2 then
+local mason_lspconfig_setup, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_setup then
 	return
 end
 
-local setup3, lspconfig = pcall(require, "lspconfig")
-if not setup3 then
+local lsp_setup, lsp = pcall(require, "lspconfig")
+if not lsp_setup then
 	return
 end
 
-local setup4, masonnullls = pcall(require, "mason-null-ls")
-if not setup4 then
+local mason_null_ls_setup, mason_null_ls = pcall(require, "mason-null-ls")
+if not mason_null_ls_setup then
 	return
 end
 
 mason.setup()
 
-masonlspconfig.setup()
+mason_lspconfig.setup()
 
-masonnullls.setup({ automatic_installation = true, automatic_setup = true })
+mason_null_ls.setup({ automatic_installation = true, automatic_setup = true })
 
-masonnullls.setup_handlers()
+mason_null_ls.setup_handlers()
 
-masonlspconfig.setup_handlers({
+mason_lspconfig.setup_handlers({
 	function(server_name)
-		lspconfig[server_name].setup({})
+		lsp[server_name].setup({})
 	end,
 })

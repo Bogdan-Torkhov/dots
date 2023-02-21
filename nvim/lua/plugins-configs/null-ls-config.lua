@@ -1,5 +1,5 @@
-local setup, null_ls = pcall(require, "null-ls")
-if not setup then
+local null_ls_setup, null_ls = pcall(require, "null-ls")
+if not null_ls_setup then
 	return
 end
 
