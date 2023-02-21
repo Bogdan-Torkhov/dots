@@ -93,6 +93,7 @@ return packer.startup(function(use)
 	use("wakatime/vim-wakatime")
 	-- colorize colors(hex,rgb)
 	use("norcalli/nvim-colorizer.lua")
+	-- cool lsp ui
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -102,4 +103,12 @@ return packer.startup(function(use)
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 	})
+	-- plugins to look cool
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({
+		"folke/noice.nvim",
+		requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+	})
+	use("stevearc/dressing.nvim")
+	use("lukas-reineke/indent-blankline.nvim")
 end)

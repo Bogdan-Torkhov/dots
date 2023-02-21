@@ -10,4 +10,5 @@ nvim_treesitter.setup({
 	indent = true,
 	autotag = true,
 	auto_install = true,
+	rainbow = true,
 })
