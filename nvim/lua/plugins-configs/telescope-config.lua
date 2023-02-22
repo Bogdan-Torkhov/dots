@@ -4,6 +4,7 @@ if not telescope_setup then
 end
 
 telescope.setup({
+	opts = { defaults = { prompt_prefix = " ", selection_caret = " " } },
 	extensions = {
 		repo = { subcommand = { argument = { "new", "default", "value" } } },
 		fzf = {
