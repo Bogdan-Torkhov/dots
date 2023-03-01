@@ -1,3 +1,8 @@
+local lazy_setup, lazy = pcall(require, "lazy")
+if not lazy_setup then
+	return
+end
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -9,20 +14,14 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 require("lazy").setup({
-	config = function(plugin)
-		vim.opt.rtp:append(plugin.dir .. "/custom-rtp")
-	end,
-	-- gruvbox theme
-	"ellisonleao/gruvbox.nvim",
 	-- dracula theme
-	"dracula/vim",
-	-- file viewer
+	"dracula/vim", -- file viewer
 	"nvim-tree/nvim-tree.lua",
-	"nvim-tree/nvim-web-devicons",
-	-- telescope
+	"nvim-tree/nvim-web-devicons", -- telescope
 	"nvim-telescope/telescope.nvim",
 	"nvim-lua/plenary.nvim",
 	"cljoly/telescope-repo.nvim",
@@ -31,8 +30,7 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	},
-	-- lsp plugins
+	}, -- lsp plugins
 	"neovim/nvim-lspconfig",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
@@ -49,8 +47,8 @@ require("lazy").setup({
 	"saadparwaiz1/cmp_luasnip",
 	"rafamadriz/friendly-snippets",
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	-- vs code like icons(
-	"onsails/lspkind.nvim",
+	-- vs code like icons
+	"onsails/lspkind.nvim", -- markdown
 	{
 		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install",
@@ -58,24 +56,33 @@ require("lazy").setup({
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
-	},
-	-- git
+	}, -- git
 	"dinhhuy258/git.nvim",
-	"lewis6991/gitsigns.nvim",
-	{ "romgrk/barbar.nvim", wants = "nvim-web-devicons" },
+	"lewis6991/gitsigns.nvim", -- bar and down line
+	{ "romgrk/barbar.nvim", dependencies = "nvim-web-devicons" },
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
-	},
-	-- auto-pairs and auto-tags
+	}, -- auto-pairs and auto-tags
 	"windwp/nvim-autopairs",
-	"windwp/nvim-ts-autotag",
-	-- nvim transparency
-	"xiyaowong/nvim-transparent",
-	-- wakatime plugin
-	"wakatime/vim-wakatime",
-	-- terminal emulator inside neovim
-	"akinsho/toggleterm.nvim",
-	-- colorize colors(hex,rgb)
-	"norcalli/nvim-colorizer.lua",
+	"windwp/nvim-ts-autotag", -- nvim transparency
+	"xiyaowong/nvim-transparent", -- wakatime plugin
+	"wakatime/vim-wakatime", -- colorize colors(hex,rgb)
+	"norcalli/nvim-colorizer.lua", -- cool lsp ui
+	{
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons" },
+			-- Please make sure you install markdown and markdown_inline parser
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	}, -- plugins to look cool
+	{ "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
+	{
+		"folke/noice.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+	},
+	"stevearc/dressing.nvim",
+	"lukas-reineke/indent-blankline.nvim",
 })

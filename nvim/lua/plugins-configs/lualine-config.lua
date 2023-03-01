@@ -7,27 +7,32 @@ lualine.setup({
 	options = {
 		icons_enabled = true,
 		theme = "dracula",
-		component_separators = "|",
-		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
 		ignore_focus = {},
 		always_divide_middle = true,
 		globalstatus = false,
 		refresh = { statusline = 1000, tabline = 1000, winbar = 1000 },
 	},
 	sections = {
-		lualine_a = { { "mode", icon = "", separator = { left = "" } } },
-		lualine_b = {
-			{ "branch", icon = "", separator = { left = "" } },
-			{ "diff", separator = { right = "" } },
-			{ "diagnostics", separator = { right = "" } },
+		lualine_a = { { "mode", icon = "" } },
+		lualine_b = { { "branch", icon = "" }, { "diff" }, { "diagnostics" } },
+		lualine_c = {
+			{
+				"filetype",
+				icon_only = true,
+				separator = "",
+				padding = { left = 1, right = 0 },
+			},
+			{
+				"filename",
+				path = 1,
+				symbols = { modified = "  ", readonly = "", unnamed = "" },
+			},
 		},
-		lualine_c = { { "filename" } },
-		lualine_x = {
-			{ "encoding", icon = "", separator = { right = "" } },
-			"filetype",
-		},
-		lualine_y = { { "progress", separator = { right = "" } } },
-		lualine_z = { { "location", icon = "", separator = { right = "" } } },
+		lualine_x = { { "encoding", icon = "" }, "filetype" },
+		lualine_y = { { "progress" } },
+		lualine_z = { { "location", icon = "" } },
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -36,9 +41,10 @@ lualine.setup({
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
+		lualine_d = {},
 	},
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = { "fzf", "man", "nvim-tree", "quickfix" },
+	extensions = { "fzf", "man", "neo-tree", "nvim-tree", "quickfix" },
 })
