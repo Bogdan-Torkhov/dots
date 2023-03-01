@@ -1,7 +1,7 @@
 require("plugins-configs.plugins")
 require("core-configs.edditor-config")
 require("plugins-configs.mason-config")
-require("plugins-configs.auto-cmp-config")
+require("plugins-configs.cmp-config")
 require("plugins-configs.nvim-tree-config")
 require("core-configs.edditor-keymaps")
 require("plugins-configs.treesitter-config")
