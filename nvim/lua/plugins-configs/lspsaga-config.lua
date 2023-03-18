@@ -57,7 +57,6 @@ keymap("n", "sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 -- You can use <C-o> to jump back to your previous location
 keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-
 -- Diagnostic jump with filters such as only jumping to an error
 keymap("n", "[E", function()
 	require("lspsaga.diagnostic"):goto_prev({
@@ -79,18 +78,18 @@ keymap("n", "o", "<cmd>Lspsaga outline<CR>")
 -- there is no information available.
 -- To disable it just use ":Lspsaga hover_doc ++quiet"
 -- Pressing the key twice will enter the hover window
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+keymap("n", "D", "<cmd>Lspsaga hover_doc<CR>")
 
 -- If you want to keep the hover window in the top right hand corner,
 -- you can pass the ++keep argument
 -- Note that if you use hover with ++keep, pressing this key again will
 -- close the hover window. If you want to jump to the hover window
 -- you should use the wincmd command "<C-w>w"
-keymap("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>")
+keymap("n", "D", "<cmd>Lspsaga hover_doc ++keep<CR>")
 
 -- Call hierarchy
-keymap("n", "ci", "<cmd>Lspsaga incoming_calls<CR>")
-keymap("n", "co", "<cmd>Lspsaga outgoing_calls<CR>")
+keymap("n", "ic", "<cmd>Lspsaga incoming_calls<CR>")
+keymap("n", "oc", "<cmd>Lspsaga outgoing_calls<CR>")
 
 -- Floating terminal
 keymap("n", "t", "<cmd>Lspsaga term_toggle<CR>")

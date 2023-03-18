@@ -34,6 +34,8 @@ return packer.startup(function(use)
 	end
 	-- dracula theme
 	use("dracula/vim")
+	-- catppuccin theme
+	use({ "catppuccin/nvim", as = "catppuccin" })
 	-- file viewer
 	use("nvim-tree/nvim-tree.lua")
 	use("nvim-tree/nvim-web-devicons")
@@ -41,7 +43,10 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("cljoly/telescope-repo.nvim")
-	use("nvim-telescope/telescope-file-browser.nvim")
+	use({
+		"nvim-telescope/telescope-file-browser.nvim",
+		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	})
 	use("nvim-telescope/telescope-project.nvim")
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",

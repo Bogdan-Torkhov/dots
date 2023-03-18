@@ -16,7 +16,7 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { { "mode", icon = "" } },
-		lualine_b = { { "branch", icon = "" }, { "diff" }, { "diagnostics" } },
+		lualine_b = { { "branch", icon = "" }, { "diff" } },
 		lualine_c = {
 			{
 				"filetype",
@@ -28,9 +28,23 @@ lualine.setup({
 				"filename",
 				path = 1,
 				symbols = { modified = "  ", readonly = "", unnamed = "" },
+				file_status = true,
 			},
 		},
-		lualine_x = { { "encoding", icon = "" }, "filetype" },
+		lualine_x = {
+			{
+				"diagnostics",
+				sources = { "nvim_diagnostic" },
+				symbols = {
+					error = " ",
+					warn = " ",
+					info = " ",
+					hint = " ",
+				},
+			},
+			"encoding",
+			"filetype",
+		},
 		lualine_y = { { "progress" } },
 		lualine_z = { { "location", icon = "" } },
 	},

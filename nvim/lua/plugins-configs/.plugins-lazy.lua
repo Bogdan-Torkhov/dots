@@ -14,12 +14,13 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
-
 vim.opt.rtp:prepend(lazypath)
+
 vim.g.mapleader = " "
-require("lazy").setup({
+
+lazy.setup({
 	-- dracula theme
-	"dracula/vim", -- file viewer
+	{ "dracula/vim", lazy = true, priority = 1 }, -- file viewer
 	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons", -- telescope
 	"nvim-telescope/telescope.nvim",

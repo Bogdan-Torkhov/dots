@@ -45,6 +45,11 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help" }, -- help for signatures
 		{ name = "vsnip" }, -- vs code snippets
 	}),
+	-- window configuration
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
 	-- configure vs-code like icons
 	formatting = {
 		fields = { "kind", "abbr", "menu" },

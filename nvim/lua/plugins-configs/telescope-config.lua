@@ -13,6 +13,7 @@ telescope.setup({
 			override_file_sorter = true,
 			case_mode = "smart_case",
 		},
+		file_browser = { theme = "dracula", hijack_netrw = true },
 	},
 })
-require("telescope").load_extension("fzf", "repo")
+telescope.load_extension("fzf", "repo", "file_browser")

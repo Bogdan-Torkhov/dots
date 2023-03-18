@@ -4,9 +4,30 @@ if not lsp_status then
 	return
 end
 
+-- import windows
+local windows_status, windows = pcall(require, "lspconfig.ui.windows")
+if not windows_status then
+	return
+end
+
+-- import float-opts
+local float_opts_status, float_opts = pcall(require, "utils.float-opts")
+if not float_opts_status then
+	return
+end
+
 -- fixing for vim global function not found
 lsp["lua_ls"].setup({ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
-
+-- rounded completion window
+float_opts = {
+	focusable = true,
+	style = "minimal",
+	border = "rounded",
+	source = "always",
+	header = "",
+	prefix = "",
+}
+windows.default_options = { border = float_opts.border }
 -- local opts = { noremap = true, silent = true }
 -- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
