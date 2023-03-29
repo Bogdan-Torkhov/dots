@@ -16,9 +16,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
+
 lazy.setup({
 	-- dracula theme
-	{ "dracula/vim", lazy = true, priority = 1000 }, -- file viewer
+	{
+		"dracula/vim",
+		lazy = false,
+		priority = 1,
+		config = function()
+			vim.cmd([[colorscheme dracula]])
+		end,
+	}, -- file viewer
 	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons", -- telescope
 	"nvim-telescope/telescope.nvim",
@@ -58,7 +66,7 @@ lazy.setup({
 	}, -- git
 	"dinhhuy258/git.nvim",
 	"lewis6991/gitsigns.nvim", -- bar and down line
-	{ "romgrk/barbar.nvim", dependencies = "nvim-web-devicons" },
+	"akinsho/bufferline.nvim",
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },

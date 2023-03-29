@@ -3,20 +3,4 @@ if not bufferline_setup then
 	return
 end
 
-bufferline.setup({
-	animation = true,
-	closable = true,
-	icons = true,
-	clickable = true,
-	icon_separator_active = "▎",
-	icon_separator_inactive = "▎",
-	icon_close_tab = "",
-	icon_close_tab_modified = "●",
-	icon_pinned = "車",
-	maximum_padding = 0,
-	maximum_length = 100,
-	always_show_bufferline = false,
-	show_buffer_close_icons = false,
-	show_close_icon = false,
-	color_icons = true,
-})
+bufferline.setup({})

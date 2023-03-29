@@ -83,7 +83,7 @@ return packer.startup(function(use)
 	use("dinhhuy258/git.nvim")
 	use("lewis6991/gitsigns.nvim")
 	-- bar and down line
-	use({ "romgrk/barbar.nvim", wants = "nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" })
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
@@ -93,8 +93,6 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	-- treesitter plugins
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	-- nvim transparency
-	-- use("xiyaowong/nvim-transparent")
 	-- wakatime plugin
 	use("wakatime/vim-wakatime")
 	-- colorize colors(hex,rgb)
