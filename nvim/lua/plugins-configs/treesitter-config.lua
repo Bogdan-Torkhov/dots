@@ -1,14 +1,9 @@
-local nvim_treesitter_setup, nvim_treesitter = pcall(require, "nvim-treesitter")
-if not nvim_treesitter_setup then
-	return
-end
-
-nvim_treesitter.setup({
-	ensure_installed = { "all" },
-	sync_install = false,
-	highlight = true,
-	indent = true,
-	autotag = true,
-	auto_install = true,
-	rainbow = true,
+require("nvim-treesitter.configs").setup({
+	sync_install = { enable = false },
+	highlight = { enable = true },
+	indent = { enable = true },
+	autotag = { enable = true },
+	auto_install = { enable = true },
+	incremental_selection = { enable = true },
+	context_commentstring = { enable = true, enable_autocmd = false },
 })

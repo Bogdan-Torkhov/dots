@@ -16,8 +16,16 @@ if not float_opts_status then
 	return
 end
 
+local capabilities_status, capabilities = pcall(require, "vim.lsp.protocol.make_client_capabilities()")
+if not capabilities_status then
+	return
+end
+
 -- fixing for vim global function not found
-lsp["lua_ls"].setup({ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
+lsp.lua_ls.setup({ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
+-- fixing null-ls error with c and cpp
+capabilities.offsetEncoding = "utf-8"
+lsp.clangd.setup({ capabilities = capabilities })
 -- rounded completion window
 float_opts = {
 	focusable = true,

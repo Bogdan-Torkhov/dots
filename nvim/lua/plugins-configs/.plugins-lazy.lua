@@ -1,5 +1,5 @@
-local lazy_setup, lazy = pcall(require, "lazy")
-if not lazy_setup then
+local lazy_status, lazy = pcall(require, "lazy")
+if not lazy_status then
 	return
 end
 
@@ -15,12 +15,10 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-
 vim.g.mapleader = " "
-
 lazy.setup({
 	-- dracula theme
-	{ "dracula/vim", lazy = true, priority = 1 }, -- file viewer
+	{ "dracula/vim", lazy = true, priority = 1000 }, -- file viewer
 	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons", -- telescope
 	"nvim-telescope/telescope.nvim",
@@ -66,8 +64,7 @@ lazy.setup({
 		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	}, -- auto-pairs and auto-tags
 	"windwp/nvim-autopairs",
-	"windwp/nvim-ts-autotag", -- nvim transparency
-	"xiyaowong/nvim-transparent", -- wakatime plugin
+	"windwp/nvim-ts-autotag", -- wakatime plugin
 	"wakatime/vim-wakatime", -- colorize colors(hex,rgb)
 	"norcalli/nvim-colorizer.lua", -- cool lsp ui
 	{
@@ -86,4 +83,6 @@ lazy.setup({
 	},
 	"stevearc/dressing.nvim",
 	"lukas-reineke/indent-blankline.nvim",
+	-- rainbow brackets for tree-sitter
+	"HiPhish/nvim-ts-rainbow2",
 })

@@ -68,7 +68,6 @@ return packer.startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	-- vs code like icons
 	use("onsails/lspkind.nvim")
 	-- markdown
@@ -92,8 +91,10 @@ return packer.startup(function(use)
 	-- auto-pairs and auto-tags
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
+	-- treesitter plugins
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 	-- nvim transparency
-	use("xiyaowong/nvim-transparent")
+	-- use("xiyaowong/nvim-transparent")
 	-- wakatime plugin
 	use("wakatime/vim-wakatime")
 	-- colorize colors(hex,rgb)
@@ -117,4 +118,6 @@ return packer.startup(function(use)
 	use("stevearc/dressing.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("echasnovski/mini.nvim")
+	-- rainbow brackets for tree-sitter
+	use("HiPhish/nvim-ts-rainbow2")
 end)
