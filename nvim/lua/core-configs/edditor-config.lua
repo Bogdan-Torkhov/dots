@@ -15,6 +15,7 @@ vim.o.ai = true
 vim.o.si = true
 vim.o.wrap = false
 vim.o.backspace = "start,eol,indent"
+vim.o.background = "dark"
 vim.g.dracula_colorterm = "1"
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2

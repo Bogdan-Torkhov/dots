@@ -1,121 +1,97 @@
-local packer_setup, packer = pcall(require, "packer")
-if not packer_setup then
+local lazy_status, lazy = pcall(require, "lazy")
+if not lazy_status then
 	return
 end
 
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({
-			"git",
-			"clone",
-			"--depth",
-			"1",
-			"https://github.com/wbthomason/packer.nvim",
-			install_path,
-		})
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-
-vim.cmd([[packadd packer.nvim]])
-
-return packer.startup(function(use)
-	-- install packer
-	use("wbthomason/packer.nvim")
-	-- bootstrap packer
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-	-- dracula theme
-	use("dracula/vim")
-	-- catppuccin theme
-	use({ "catppuccin/nvim", as = "catppuccin" })
-	-- file viewer
-	use("nvim-tree/nvim-tree.lua")
-	use("nvim-tree/nvim-web-devicons")
-	-- telescope
-	use("nvim-telescope/telescope.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("cljoly/telescope-repo.nvim")
-	use({
-		"nvim-telescope/telescope-file-browser.nvim",
-		requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-	})
-	use("nvim-telescope/telescope-project.nvim")
-	use({
+lazy.setup({
+  -- dracula theme
+  {
+    'maxmx03/dracula.nvim',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function ()
+      vim.cmd('colorscheme dracula')
+    end
+  },
+  -- file viewer
+  "nvim-tree/nvim-tree.lua",
+	"nvim-tree/nvim-web-devicons", -- telescope
+	"nvim-telescope/telescope.nvim",
+	"nvim-lua/plenary.nvim",
+	"cljoly/telescope-repo.nvim",
+	"nvim-telescope/telescope-file-browser.nvim",
+	"nvim-telescope/telescope-project.nvim",
+	{
 		"nvim-telescope/telescope-fzf-native.nvim",
-		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	})
-	-- lsp plugins
-	use("neovim/nvim-lspconfig")
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
-	use("hrsh7th/cmp-nvim-lsp-signature-help")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-buffer")
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("hrsh7th/cmp-vsnip")
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("jay-babu/mason-null-ls.nvim")
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-	use("rafamadriz/friendly-snippets")
+		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+	}, -- lsp plugins
+	"neovim/nvim-lspconfig",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
+	"hrsh7th/cmp-nvim-lsp-signature-help",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-buffer",
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"hrsh7th/cmp-vsnip",
+	"jose-elias-alvarez/null-ls.nvim",
+	"jay-babu/mason-null-ls.nvim",
+	"L3MON4D3/LuaSnip",
+	"saadparwaiz1/cmp_luasnip",
+	"rafamadriz/friendly-snippets",
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	-- vs code like icons
-	use("onsails/lspkind.nvim")
-	-- markdown
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
+	"onsails/lspkind.nvim", -- markdown
+	{
+	"iamcco/markdown-preview.nvim",
+		build = "cd app && npm install",
+		init = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
-	})
-	-- git
-	use("dinhhuy258/git.nvim")
-	use("lewis6991/gitsigns.nvim")
-	-- bar and down line
-	use("akinsho/bufferline.nvim")
-  use({
+	}, -- git
+	"dinhhuy258/git.nvim",
+	"lewis6991/gitsigns.nvim", -- bar and down line
+	"akinsho/bufferline.nvim",
+	{
 		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
-	})
-	-- auto-pairs and auto-tags
-	use("windwp/nvim-autopairs")
-	use("windwp/nvim-ts-autotag")
-	-- treesitter plugins
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-	-- wakatime plugin
-	use("wakatime/vim-wakatime")
-	-- colorize colors(hex,rgb)
-	use("norcalli/nvim-colorizer.lua")
-	-- cool lsp ui
-	use({
+		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
+	}, -- auto-pairs and auto-tags
+	"windwp/nvim-autopairs",
+	"windwp/nvim-ts-autotag", -- wakatime plugin
+	"wakatime/vim-wakatime", -- colorize colors(hex,rgb)
+	"norcalli/nvim-colorizer.lua", -- cool lsp ui
+	{
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-		requires = {
+		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 			-- Please make sure you install markdown and markdown_inline parser
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
-	})
-	-- plugins to look cool
-	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({
+	}, -- plugins to look cool
+	{ "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
+	{
 		"folke/noice.nvim",
-		requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
-	})
-	use("stevearc/dressing.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
-	use("echasnovski/mini.nvim")
-	-- rainbow brackets for tree-sitter
-	use("HiPhish/nvim-ts-rainbow2")
-end)
+		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+	},
+	"stevearc/dressing.nvim",
+	"lukas-reineke/indent-blankline.nvim",
+  "echasnovski/mini.nvim",
+  -- rainbow brackets for tree-sitter
+	"HiPhish/nvim-ts-rainbow2",
+})

@@ -33,7 +33,7 @@ return packer.startup(function(use)
 		require("packer").sync()
 	end
 	-- dracula theme
-	use("dracula/vim")
+	use("maxmx03/dracula.nvim")
 	-- catppuccin theme
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	-- file viewer
@@ -116,6 +116,6 @@ return packer.startup(function(use)
 	use("stevearc/dressing.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("echasnovski/mini.nvim")
-	-- rainbow brackets for tree-sitter
+  -- rainbow brackets for tree-sitter
 	use("HiPhish/nvim-ts-rainbow2")
 end)
