@@ -24,8 +24,13 @@ end
 -- fixing for vim global function not found
 lsp.lua_ls.setup({ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
 -- fixing null-ls error with c and cpp
-capabilities.offsetEncoding = "utf-8"
+capabilities.offsetEncoding = {"utf-16"}
+vim.lsp.protocol.make_client_capabilities()({
+	textDocument = { completion = { editsNearCursor = true } },
+	offsetEncoding = { "utf-16" },
+})
 lsp.clangd.setup({ capabilities = capabilities })
+lsp.null_ls.setup({ capabilities = capabilities })
 -- rounded completion window
 float_opts = {
 	focusable = true,
