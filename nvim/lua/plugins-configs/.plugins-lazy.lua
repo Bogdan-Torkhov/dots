@@ -18,26 +18,26 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 lazy.setup({
-	-- dracula theme
+  -- dracula theme
 	{
 		"dracula/vim",
 		lazy = false,
-		priority = 1,
-		config = function()
-			vim.cmd([[colorscheme dracula]])
-		end,
+		priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme dracula]])
+    end,
 	}, -- file viewer
-	"nvim-tree/nvim-tree.lua",
-	"nvim-tree/nvim-web-devicons", -- telescope
-	"nvim-telescope/telescope.nvim",
+--"nvim-tree/nvim-tree.lua",
+--	"nvim-tree/nvim-web-devicons", -- telescope
+--	"nvim-telescope/telescope.nvim",
 	"nvim-lua/plenary.nvim",
-	"cljoly/telescope-repo.nvim",
-	"nvim-telescope/telescope-file-browser.nvim",
-	"nvim-telescope/telescope-project.nvim",
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	}, -- lsp plugins
+--	"cljoly/telescope-repo.nvim",
+--	"nvim-telescope/telescope-file-browser.nvim",
+--	"nvim-telescope/telescope-project.nvim",
+--	{
+--		"nvim-telescope/telescope-fzf-native.nvim",
+--		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+--	}, -- lsp plugins
 	"neovim/nvim-lspconfig",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
@@ -56,41 +56,41 @@ lazy.setup({
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	-- vs code like icons
 	"onsails/lspkind.nvim", -- markdown
-	{
-		"iamcco/markdown-preview.nvim",
-		build = "cd app && npm install",
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	}, -- git
-	"dinhhuy258/git.nvim",
-	"lewis6991/gitsigns.nvim", -- bar and down line
-	"akinsho/bufferline.nvim",
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
-	}, -- auto-pairs and auto-tags
-	"windwp/nvim-autopairs",
-	"windwp/nvim-ts-autotag", -- wakatime plugin
-	"wakatime/vim-wakatime", -- colorize colors(hex,rgb)
-	"norcalli/nvim-colorizer.lua", -- cool lsp ui
-	{
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-		dependencies = {
-			{ "nvim-tree/nvim-web-devicons" },
-			-- Please make sure you install markdown and markdown_inline parser
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-	}, -- plugins to look cool
-	{ "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
-	{
-		"folke/noice.nvim",
-		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
-	},
-	"stevearc/dressing.nvim",
-	"lukas-reineke/indent-blankline.nvim",
+--	{
+--	"iamcco/markdown-preview.nvim",
+--		build = "cd app && npm install",
+--		init = function()
+--			vim.g.mkdp_filetypes = { "markdown" }
+--		end,
+--		ft = { "markdown" },
+--	}, -- git
+--	"dinhhuy258/git.nvim",
+--	"lewis6991/gitsigns.nvim", -- bar and down line
+--	"akinsho/bufferline.nvim",
+--	{
+--		"nvim-lualine/lualine.nvim",
+--		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
+--	}, -- auto-pairs and auto-tags
+--	"windwp/nvim-autopairs",
+--	"windwp/nvim-ts-autotag", -- wakatime plugin
+--	"wakatime/vim-wakatime", -- colorize colors(hex,rgb)
+--	"norcalli/nvim-colorizer.lua", -- cool lsp ui
+--	{
+--		"glepnir/lspsaga.nvim",
+--		branch = "main",
+--		dependencies = {
+--			{ "nvim-tree/nvim-web-devicons" },
+--			-- Please make sure you install markdown and markdown_inline parser
+--			{ "nvim-treesitter/nvim-treesitter" },
+--		},
+--	}, -- plugins to look cool
+--	{ "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
+--	{
+--		"folke/noice.nvim",
+--		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+--	},
+--	"stevearc/dressing.nvim",
+--	"lukas-reineke/indent-blankline.nvim",
 	-- rainbow brackets for tree-sitter
-	"HiPhish/nvim-ts-rainbow2",
+--	"HiPhish/nvim-ts-rainbow2",
 })
