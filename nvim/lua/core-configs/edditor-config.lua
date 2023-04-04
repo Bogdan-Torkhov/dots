@@ -40,3 +40,4 @@ vim.o.updatetime = 100
 vim.o.expandtab = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.dashboard_default_executive = "telescope"

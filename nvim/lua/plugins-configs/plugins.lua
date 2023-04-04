@@ -5,29 +5,33 @@ end
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 lazy.setup({
-  -- dracula theme
-  {
-    'maxmx03/dracula.nvim',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function ()
-      vim.cmd('colorscheme dracula')
-    end
-  },
-  -- file viewer
-  "nvim-tree/nvim-tree.lua",
+	-- dracula theme
+	{
+		"maxmx03/dracula.nvim",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
+		config = function()
+			vim.cmd("colorscheme dracula")
+		end,
+	}, -- dashboard
+	{
+		"glepnir/dashboard-nvim",
+		event = "VimEnter",
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	}, -- file viewer
+	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons", -- telescope
 	"nvim-telescope/telescope.nvim",
 	"nvim-lua/plenary.nvim",
@@ -47,17 +51,21 @@ lazy.setup({
 	"hrsh7th/cmp-buffer",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
+	"mason-org/mason-registry",
 	"hrsh7th/cmp-vsnip",
 	"jose-elias-alvarez/null-ls.nvim",
 	"jay-babu/mason-null-ls.nvim",
 	"L3MON4D3/LuaSnip",
 	"saadparwaiz1/cmp_luasnip",
 	"rafamadriz/friendly-snippets",
+	"mfussenegger/nvim-dap",
+	"jay-babu/mason-nvim-dap.nvim",
+	"rcarriga/nvim-dap-ui",
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	-- vs code like icons
 	"onsails/lspkind.nvim", -- markdown
 	{
-	"iamcco/markdown-preview.nvim",
+		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install",
 		init = function()
 			vim.g.mkdp_filetypes = { "markdown" }
@@ -91,7 +99,7 @@ lazy.setup({
 	},
 	"stevearc/dressing.nvim",
 	"lukas-reineke/indent-blankline.nvim",
-  "echasnovski/mini.nvim",
-  -- rainbow brackets for tree-sitter
+	"echasnovski/mini.nvim", -- rainbow brackets for tree-sitter
 	"HiPhish/nvim-ts-rainbow2",
+	"folke/neodev.nvim",
 })

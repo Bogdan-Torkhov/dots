@@ -60,5 +60,5 @@ lualine.setup({
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = { "fzf", "man", "neo-tree", "nvim-tree", "quickfix" },
+	extensions = { "fzf", "man", "neo-tree", "nvim-tree", "quickfix", "lazy" },
 })
