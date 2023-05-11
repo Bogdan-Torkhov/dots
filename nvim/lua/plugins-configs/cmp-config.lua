@@ -20,6 +20,19 @@ require("luasnip/loaders/from_vscode").lazy_load()
 
 vim.o.completeopt = "menu,menuone,noselect"
 
+local function border(hl_name)
+	return {
+		{ "╭", hl_name },
+		{ "─", hl_name },
+		{ "╮", hl_name },
+		{ "│", hl_name },
+		{ "╯", hl_name },
+		{ "─", hl_name },
+		{ "╰", hl_name },
+		{ "│", hl_name },
+	}
+end
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -47,16 +60,26 @@ cmp.setup({
 	}),
 	-- window configuration
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		completion = {
+			-- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+			col_offset = -3,
+			side_padding = 0,
+			border = border("WinSeparator"), -- WinSeparator will look better on transparent bg
+		},
+		documentation = { border = border("WinSeparator") },
 	},
-	-- configure vs-code like icons
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
-		format = lspkind.cmp_format({
-			mode = "symbol",
-			maxwidth = 50,
-			ellipsis_char = "...",
-		}),
+		format = function(entry, vim_item)
+			local kind = require("lspkind").cmp_format({
+				mode = "symbol_text",
+				maxwidth = 50,
+			})(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = " " .. (strings[1] or "") .. " "
+			kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+			return kind
+		end,
 	},
 })

@@ -13,6 +13,16 @@ if not dap_ui_status then
 	return
 end
 
-mason_dap.setup({ automatic_setup = true })
-mason_dap.setup_handlers()
+mason_dap.setup({
+	automatic_setup = true,
+	handlers = {
+		function(config)
+			-- all sources with no handler get passed here
+
+			-- Keep original functionality
+			mason_dap.default_setup(config)
+		end,
+	},
+})
+
 dap_ui.setup()

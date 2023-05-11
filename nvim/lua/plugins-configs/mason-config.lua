@@ -22,9 +22,11 @@ mason.setup()
 
 mason_lspconfig.setup()
 
-mason_null_ls.setup({ automatic_installation = true, automatic_setup = true })
-
-mason_null_ls.setup_handlers()
+mason_null_ls.setup({
+	automatic_installation = true,
+	automatic_setup = true,
+	handlers = TABLE,
+})
 
 mason_lspconfig.setup_handlers({
 	function(server_name)

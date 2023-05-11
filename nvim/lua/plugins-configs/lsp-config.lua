@@ -15,7 +15,6 @@ local float_opts_status, float_opts = pcall(require, "utils.float-opts")
 if not float_opts_status then
 	return
 end
-
 -- import capabilities
 local capabilities_status, capabilities = pcall(require, "vim.lsp.protocol.make_client_capabilities()")
 if not capabilities_status then
@@ -27,8 +26,7 @@ vim.lsp.protocol.make_client_capabilities()({
 	textDocument = { completion = { editsNearCursor = true } },
 	offsetEncoding = { "utf-16" },
 })
-lsp.clangd.setup({ capabilities = capabilities })
-lsp.null_ls.setup({ capabilities = capabilities })
+
 -- fixing for vim global function not found
 lsp.lua_ls.setup({
 	settings = {
