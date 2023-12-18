@@ -33,6 +33,8 @@ dracula.setup({
 		vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = colors.bgdark, bg = colors.bgdark })
 		vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = colors.fg, bg = colors.comment })
 		vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { fg = colors.purple })
+		vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", {})
+		vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", {})
 	end,
 	override = function(colors)
 		return {

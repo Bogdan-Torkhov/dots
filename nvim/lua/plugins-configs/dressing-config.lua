@@ -22,7 +22,6 @@ dressing.setup({
 		start_in_insert = true,
 
 		-- These are passed to nvim_open_win
-		anchor = "SW",
 		border = "rounded",
 		-- 'editor' and 'win' will default to being centered
 		relative = "cursor",
@@ -100,8 +99,9 @@ dressing.setup({
 
 		-- Options for built-in selector
 		builtin = {
+			-- Display numbers for options and set up keymaps
+			show_numbers = true,
 			-- These are passed to nvim_open_win
-			anchor = "NW",
 			border = "rounded",
 			-- 'editor' and 'win' will default to being centered
 			relative = "editor",

@@ -3,4 +3,6 @@ if not bufferline_setup then
 	return
 end
 
-bufferline.setup({})
+bufferline.setup({
+	options = { hover = { enabled = true, delay = 100, reveal = { "close" } } },
+})

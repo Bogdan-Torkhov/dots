@@ -35,13 +35,13 @@ local draculaconfig = {
 			{
 				icon = " ",
 				desc = "Recent files",
-				key = "r",
+				key = "rf",
 				action = "Telescope oldfiles",
 			},
 			{
 				icon = " ",
 				desc = "Recent Text",
-				key = "r",
+				key = "rt",
 				action = "Telescope live_grep",
 			},
 			{

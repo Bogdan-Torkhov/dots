@@ -66,10 +66,7 @@ lazy.setup({
 	"onsails/lspkind.nvim", -- markdown
 	{
 		"iamcco/markdown-preview.nvim",
-		build = "cd app && npm install",
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
+		build = "cd app && npx --yes yarn install",
 		ft = { "markdown" },
 	}, -- git
 	"dinhhuy258/git.nvim",
@@ -98,7 +95,7 @@ lazy.setup({
 		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
 	},
 	"stevearc/dressing.nvim",
-	"lukas-reineke/indent-blankline.nvim",
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	"echasnovski/mini.nvim", -- rainbow brackets for tree-sitter
 	"HiPhish/nvim-ts-rainbow2",
 	"folke/neodev.nvim",
