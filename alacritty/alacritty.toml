@@ -1,0 +1,21 @@
+import = ["/home/deusbog/alacritty-master/dracula.toml"]
+
+[font.normal]
+family = "Sauce Code Pro Nerd Font"
+style = "Regular"
+
+[font]
+size = 13.0
+
+[[keyboard.bindings]]
+chars = "\u001B[32;2u"
+key = "Space"
+mods = "Shift"
+
+[shell]
+args = ["--login"]
+program = "/usr/bin/zsh"
+
+[window]
+decorations = "Full"
+opacity = 0.9
