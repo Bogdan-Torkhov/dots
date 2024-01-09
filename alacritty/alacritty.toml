@@ -13,8 +13,8 @@ key = "Space"
 mods = "Shift"
 
 [shell]
-args = ["--login"]
 program = "/usr/bin/zsh"
+args = ["--login"]
 
 [window]
 decorations = "Full"
